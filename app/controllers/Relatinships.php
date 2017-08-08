@@ -15,6 +15,7 @@ class Relatinships extends Controller
         $this->article = $this->model('Article');
         $this->country = $this->model('Country');
         $this->role = $this->model('Role');
+        $this->comment = $this->model('Comment');
     }
 
     public function index()

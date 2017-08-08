@@ -14,4 +14,8 @@ class Article extends Eloquent
     {
         return $this->belongsTo('User');
     }
+    public function comments()
+    {
+        return $this->morphMany('Comment', 'commentable');
+    }
 }

@@ -31,4 +31,9 @@ class User extends Eloquent
         return $this->belongsToMany('Role');
     }
 
+    public function comments()
+    {
+        return $this->morphMany('Comment', 'commentable');
+    }
+
 }

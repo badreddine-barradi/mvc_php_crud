@@ -13,3 +13,7 @@
         echo "<h1>Title :".$article->title."</h1>";
         echo "<h3> Body <br>".$article->body."</h3>";
     }
+
+    echo "<h1>Comments : <br>";
+    foreach ($data['user_profile']->comments as $comment )
+        echo "<h2>".$comment->body."</h2>";
