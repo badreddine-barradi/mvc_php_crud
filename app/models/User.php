@@ -12,8 +12,23 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class User extends Eloquent
 {
-    public $name;
+    //public $name;
     //public $timestamps = false;
     protected $fillable = ['username' , 'email'];
+
+    public function articles()
+    {
+        return $this->hasMany('Article');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo('Country');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('Role');
+    }
 
 }

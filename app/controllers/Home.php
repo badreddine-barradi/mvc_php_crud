@@ -6,15 +6,23 @@
  * Date: 11/07/2017
  * Time: 12:54
  */
-//use app\models\User;
+//use app\models\Article;
 
 
 class Home extends Controller
 {
+    protected $user;
+    protected $article;
+
+    public function __construct()
+    {
+        $this->user = $this->model('User');
+        $this->article = $this->model('Article');
+    }
 
     public function index($name = '')
     {
-        $user = $this->model('User');
+        $user = $this->user;
         $user->name = $name;
         $this->view('home/index',[ 'name' => $user->name]);
 
@@ -82,5 +90,11 @@ class Home extends Controller
         User::destroy($id);
         echo "<script>alert('deleted successfully')</script>";
         header('location:../lister');
+    }
+
+    public function relation()
+    {
+        //$article = $this->article;
+        echo Article::all();
     }
 }
